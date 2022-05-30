@@ -24,7 +24,7 @@ public class GameObjectDragAndDrop : MonoBehaviour
         {
             RaycastHit hitInfo;
             target = ReturnClickedObject(out hitInfo);
-            if (target != null)
+            if (target != null && target.tag == "cube") //only move cubes
             {
                 isMouseDrag = true;
                 Debug.Log("target position :" + target.transform.position);
