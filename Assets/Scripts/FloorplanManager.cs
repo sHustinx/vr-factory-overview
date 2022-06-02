@@ -3,32 +3,40 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class CubeBehaviour : MonoBehaviour
+public class FloorplanManager : MonoBehaviour
 {
-    public GameObject cube;
-    public GameObject cubeParent;
+
+    public GameObject infoPanel;
 
     // Start is called before the first frame update
     void Start()
     {
+
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hitInfo;
-            if (ReturnClickedObject(out hitInfo).tag != "cube") // only spawn, if not dragging object
+            GameObject target = ReturnClickedObject(out hitInfo);
+            if (target.tag == "cube")
             {
-                Debug.Log(ReturnClickedObject(out hitInfo).tag);
-                SpawnPrefab();
+                WorkspaceInfo info = target.GetComponent<WorkspaceInfo>();
+                //Debug.Log(info.id + " " + info.workspaceName + " " + info.description);
+                info.SetStatus(WorkspaceInfo.WorkspaceStatus.Active);
+                infoPanel.SetActive(true);
+                infoPanel.GetComponent<UpdateDetailView>().InitializeText(info);
             }
-                
+
+
+
         }
     }
 
-    void SpawnPrefab()
+    /*void SpawnPrefab()
     {
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = 8.0f;       // todo: calc autom. ?
@@ -37,7 +45,7 @@ public class CubeBehaviour : MonoBehaviour
         GameObject tmp = Instantiate(cube, cubeParent.transform, true);     //, objectPos, Quaternion.identity,
         tmp.gameObject.transform.position = objectPos;
 
-    }
+    }*/
 
     GameObject ReturnClickedObject(out RaycastHit hit)
     {
