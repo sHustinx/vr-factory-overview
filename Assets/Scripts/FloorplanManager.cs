@@ -1,17 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class FloorplanManager : MonoBehaviour
 {
 
     public GameObject infoPanel;
+    public Button processView;
+    public Button machineView;
+    private ViewState viewState;
+
+    enum ViewState
+    {
+        Machines,
+        Process,
+        Product
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+        processView.onClick.AddListener(SetProcessView);
+        machineView.onClick.AddListener(SetMachineView);
+    }
 
+    void SetProcessView()
+    {
+        viewState = ViewState.Process;
+    }
+
+    void SetMachineView()
+    {
+        viewState = ViewState.Machines;
     }
 
     // Update is called once per frame
@@ -22,13 +43,30 @@ public class FloorplanManager : MonoBehaviour
         {
             RaycastHit hitInfo;
             GameObject target = ReturnClickedObject(out hitInfo);
-            if (target.tag == "cube")
+            Debug.Log(target);
+            if (target != null && target.tag == "cube")
             {
-                WorkspaceInfo info = target.GetComponent<WorkspaceInfo>();
-                //Debug.Log(info.id + " " + info.workspaceName + " " + info.description);
-                info.SetStatus(WorkspaceInfo.WorkspaceStatus.Active);
-                infoPanel.SetActive(true);
-                infoPanel.GetComponent<UpdateDetailView>().InitializeText(info);
+                if (!infoPanel.activeSelf)
+                {
+
+                    WorkspaceInfo info = target.GetComponent<WorkspaceInfo>();
+                    info.SetStatus(WorkspaceInfo.WorkspaceStatus.Active);
+
+                    switch (viewState)
+                    {
+                        case ViewState.Machines:
+                            Debug.Log("Macihne view");
+                            infoPanel.SetActive(true);
+                            infoPanel.GetComponent<UpdateDetailView>().InitializeText(info);
+                            break;
+                        case ViewState.Process:
+                            Debug.Log("Process view");
+                            infoPanel.SetActive(true);
+                            infoPanel.GetComponent<UpdateDetailView>().InitializeText(info);
+                            break;
+                    }
+                }
+                
             }
 
 
