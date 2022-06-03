@@ -11,6 +11,10 @@ public class FloorplanManager : MonoBehaviour
     public Button machineView;
     private ViewState viewState;
 
+    private GameObject connections;
+    private bool linesRendered = false;
+    private LineRenderer lr;
+
     enum ViewState
     {
         Machines,
@@ -23,16 +27,22 @@ public class FloorplanManager : MonoBehaviour
     {
         processView.onClick.AddListener(SetProcessView);
         machineView.onClick.AddListener(SetMachineView);
+        connections = new GameObject("LineRenderer");
     }
 
     void SetProcessView()
     {
         viewState = ViewState.Process;
+        ShowConnections();
+        infoPanel.SetActive(false);
     }
 
     void SetMachineView()
     {
         viewState = ViewState.Machines;
+
+        if (connections.activeSelf)
+            connections.SetActive(false);
     }
 
     // Update is called once per frame
@@ -43,7 +53,7 @@ public class FloorplanManager : MonoBehaviour
         {
             RaycastHit hitInfo;
             GameObject target = ReturnClickedObject(out hitInfo);
-            Debug.Log(target);
+            //Debug.Log(target);
             if (target != null && target.tag == "cube")
             {
                 if (!infoPanel.activeSelf)
@@ -55,14 +65,12 @@ public class FloorplanManager : MonoBehaviour
                     switch (viewState)
                     {
                         case ViewState.Machines:
-                            Debug.Log("Macihne view");
+                            Debug.Log("Machine view");
                             infoPanel.SetActive(true);
                             infoPanel.GetComponent<UpdateDetailView>().InitializeText(info);
                             break;
                         case ViewState.Process:
                             Debug.Log("Process view");
-                            infoPanel.SetActive(true);
-                            infoPanel.GetComponent<UpdateDetailView>().InitializeText(info);
                             break;
                     }
                 }
@@ -72,6 +80,41 @@ public class FloorplanManager : MonoBehaviour
 
 
         }
+    }
+
+    //for process view, show connections between machines
+    void ShowConnections()
+    {
+        if (!linesRendered)
+        {
+            
+            lr = connections.AddComponent<LineRenderer>();
+
+            var parent = GameObject.Find("Machines");
+            lr.positionCount = parent.transform.childCount;
+
+            for (int i = 0; i < parent.transform.childCount; i++)
+            {
+                lr.SetPosition(i, parent.transform.GetChild(i).gameObject.transform.position);
+            }
+
+            Color c1 = Color.white;
+            Color c2 = new Color(1, 1, 1, 0.2f);
+            lr.material = new Material(Shader.Find("Sprites/Default"));
+            lr.startColor = c1;
+            lr.endColor = c2;
+            lr.startWidth = 0.6f;
+            lr.endWidth = 0.4f;
+
+
+            linesRendered = true;
+        }
+        else
+        {
+            connections.SetActive(true);
+        }
+        
+
     }
 
     /*void SpawnPrefab()
