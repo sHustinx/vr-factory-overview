@@ -9,6 +9,22 @@ public class WorkspaceInfo : MonoBehaviour
     public string description;
     public WorkspaceStatus status;
 
+    public GameObject clock_green;
+    public GameObject clock_orange;
+    public GameObject clock_red;
+
+    public GameObject jobs_green;
+    public GameObject jobs_orange;
+    public GameObject jobs_red;
+
+    public GameObject delay_green;
+    public GameObject delay_orange;
+    public GameObject delay_red;
+
+    public int numOfDelays = 5;
+    public int numOfJobs = 5;
+    public int numOfPredictedDelays = 5;
+
 
     public enum WorkspaceStatus
     {
@@ -34,6 +50,8 @@ public class WorkspaceInfo : MonoBehaviour
                 gameObject.GetComponent<Renderer>().material.color = Color.red;
                 break;
         }
+
+        
     }
 
     public WorkspaceStatus GetStatus()
@@ -46,11 +64,80 @@ public class WorkspaceInfo : MonoBehaviour
     {
         SetStatus(WorkspaceStatus.Inactive);
 
+        clock_red.SetActive(false);
+        clock_green.SetActive(true);
+        clock_orange.SetActive(false);
+
+        jobs_red.SetActive(false);
+        jobs_green.SetActive(true);
+        jobs_orange.SetActive(false);
+
+        delay_red.SetActive(false);
+        delay_green.SetActive(true);
+        delay_orange.SetActive(false);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+        if (numOfDelays < 5)
+        {
+            clock_red.SetActive(false);
+            clock_green.SetActive(true);
+            clock_orange.SetActive(false);
+        }
+        if (numOfDelays > 5)
+        {
+            clock_red.SetActive(false);
+            clock_green.SetActive(false);
+            clock_orange.SetActive(true);
+        }
+        if (numOfDelays > 10)
+        {
+            clock_red.SetActive(true);
+            clock_green.SetActive(false);
+            clock_orange.SetActive(false);
+        }
+
+
+        if (numOfJobs < 5)
+        {
+            jobs_red.SetActive(false);
+            jobs_green.SetActive(true);
+            jobs_orange.SetActive(false);
+        }
+        if (numOfJobs > 5)
+        {
+            jobs_red.SetActive(false);
+            jobs_green.SetActive(false);
+            jobs_orange.SetActive(true);
+        }
+        if (numOfJobs > 10)
+        {
+            jobs_red.SetActive(true);
+            jobs_green.SetActive(false);
+            jobs_orange.SetActive(false);
+        }
+
+        if (numOfPredictedDelays < 5)
+        {
+            delay_red.SetActive(false);
+            delay_green.SetActive(true);
+            delay_orange.SetActive(false);
+        }
+        if (numOfPredictedDelays > 5)
+        {
+            delay_red.SetActive(false);
+            delay_green.SetActive(false);
+            delay_orange.SetActive(true);
+        }
+        if (numOfPredictedDelays > 10)
+        {
+            delay_red.SetActive(true);
+            delay_green.SetActive(false);
+            delay_orange.SetActive(false);
+        }
     }
 }

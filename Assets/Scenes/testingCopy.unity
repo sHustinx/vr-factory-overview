@@ -728,7 +728,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &128155526
 Transform:
   m_ObjectHideFlags: 0
@@ -778,6 +778,18 @@ MonoBehaviour:
   workspaceName: Lasercutter
   description: test
   status: 0
+  clock_green: {fileID: 0}
+  clock_orange: {fileID: 0}
+  clock_red: {fileID: 0}
+  jobs_green: {fileID: 0}
+  jobs_orange: {fileID: 0}
+  jobs_red: {fileID: 0}
+  delay_green: {fileID: 0}
+  delay_orange: {fileID: 0}
+  delay_red: {fileID: 0}
+  numOfDelays: 5
+  numOfJobs: 5
+  numOfPredictedDelays: 5
 --- !u!65 &128155529
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -861,7 +873,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &182721613
 Transform:
   m_ObjectHideFlags: 0
@@ -911,6 +923,18 @@ MonoBehaviour:
   workspaceName: Lasercutter
   description: test
   status: 0
+  clock_green: {fileID: 0}
+  clock_orange: {fileID: 0}
+  clock_red: {fileID: 0}
+  jobs_green: {fileID: 0}
+  jobs_orange: {fileID: 0}
+  jobs_red: {fileID: 0}
+  delay_green: {fileID: 0}
+  delay_orange: {fileID: 0}
+  delay_red: {fileID: 0}
+  numOfDelays: 5
+  numOfJobs: 5
+  numOfPredictedDelays: 5
 --- !u!65 &182721616
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2380,6 +2404,152 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 505478425}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &520858804
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 520858805}
+  - component: {fileID: 520858807}
+  - component: {fileID: 520858806}
+  m_Layer: 0
+  m_Name: clock_red
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &520858805
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520858804}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0.1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1678288476}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.3, y: -0}
+  m_SizeDelta: {x: 1, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &520858806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520858804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: d4a29238304e88f4f81635f5e2f9b14c, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &520858807
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520858804}
+  m_CullTransparentMesh: 1
+--- !u!1 &547512616
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 547512617}
+  - component: {fileID: 547512619}
+  - component: {fileID: 547512618}
+  m_Layer: 0
+  m_Name: delay_orange
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &547512617
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547512616}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0.1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1678288476}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.3, y: 0}
+  m_SizeDelta: {x: 1, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &547512618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547512616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: e0c8fb015f162ff48a93f2b32af7d9f2, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &547512619
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547512616}
+  m_CullTransparentMesh: 1
 --- !u!1 &548006869
 GameObject:
   m_ObjectHideFlags: 0
@@ -3458,6 +3628,18 @@ MonoBehaviour:
   workspaceName: Lasercutter
   description: test
   status: 0
+  clock_green: {fileID: 2082959586}
+  clock_orange: {fileID: 895786963}
+  clock_red: {fileID: 520858804}
+  jobs_green: {fileID: 700885798}
+  jobs_orange: {fileID: 936053888}
+  jobs_red: {fileID: 1877850114}
+  delay_green: {fileID: 1503804794}
+  delay_orange: {fileID: 547512616}
+  delay_red: {fileID: 696766251}
+  numOfDelays: 5
+  numOfJobs: 5
+  numOfPredictedDelays: 5
 --- !u!114 &679134235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3470,6 +3652,79 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d65cfd0782b18d643b49e2101eacfcf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &696766251
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 696766252}
+  - component: {fileID: 696766254}
+  - component: {fileID: 696766253}
+  m_Layer: 0
+  m_Name: delay_red
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &696766252
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696766251}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0.1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1678288476}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.3, y: 0}
+  m_SizeDelta: {x: 1, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &696766253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696766251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: fb4a1471cb1b67b46bdfcf96300a42bb, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &696766254
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696766251}
+  m_CullTransparentMesh: 1
 --- !u!1 &700885798
 GameObject:
   m_ObjectHideFlags: 0
@@ -3482,7 +3737,7 @@ GameObject:
   - component: {fileID: 700885801}
   - component: {fileID: 700885800}
   m_Layer: 0
-  m_Name: jobs
+  m_Name: jobs_green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3528,7 +3783,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 74054e255818aea4f94bd70ea1f96bd4, type: 3}
+  m_Texture: {fileID: 2800000, guid: 1ec91a02874762b44b6b7b6d3294a421, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -4711,6 +4966,79 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 892849462}
   m_CullTransparentMesh: 1
+--- !u!1 &895786963
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 895786964}
+  - component: {fileID: 895786966}
+  - component: {fileID: 895786965}
+  m_Layer: 0
+  m_Name: clock_orange
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &895786964
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895786963}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0.1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1678288476}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.3, y: -0}
+  m_SizeDelta: {x: 1, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &895786965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895786963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: 8e8a2e2332105594082bf192967e5acf, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &895786966
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895786963}
+  m_CullTransparentMesh: 1
 --- !u!1 &912263956
 GameObject:
   m_ObjectHideFlags: 0
@@ -4808,6 +5136,79 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 912263956}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &936053888
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 936053889}
+  - component: {fileID: 936053891}
+  - component: {fileID: 936053890}
+  m_Layer: 0
+  m_Name: jobs_orange
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &936053889
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936053888}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0.1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1678288476}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &936053890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936053888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: 9b99b310b39b53a47a68418ec5ac4f63, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &936053891
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936053888}
+  m_CullTransparentMesh: 1
 --- !u!1 &945257815
 GameObject:
   m_ObjectHideFlags: 0
@@ -5975,7 +6376,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1120932423
 Transform:
   m_ObjectHideFlags: 0
@@ -6025,6 +6426,18 @@ MonoBehaviour:
   workspaceName: Lasercutter
   description: test
   status: 0
+  clock_green: {fileID: 0}
+  clock_orange: {fileID: 0}
+  clock_red: {fileID: 0}
+  jobs_green: {fileID: 0}
+  jobs_orange: {fileID: 0}
+  jobs_red: {fileID: 0}
+  delay_green: {fileID: 0}
+  delay_orange: {fileID: 0}
+  delay_red: {fileID: 0}
+  numOfDelays: 5
+  numOfJobs: 5
+  numOfPredictedDelays: 5
 --- !u!65 &1120932426
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6108,7 +6521,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1249569560
 Transform:
   m_ObjectHideFlags: 0
@@ -6158,6 +6571,18 @@ MonoBehaviour:
   workspaceName: Lasercutter
   description: test
   status: 0
+  clock_green: {fileID: 0}
+  clock_orange: {fileID: 0}
+  clock_red: {fileID: 0}
+  jobs_green: {fileID: 0}
+  jobs_orange: {fileID: 0}
+  jobs_red: {fileID: 0}
+  delay_green: {fileID: 0}
+  delay_orange: {fileID: 0}
+  delay_red: {fileID: 0}
+  numOfDelays: 5
+  numOfJobs: 5
+  numOfPredictedDelays: 5
 --- !u!65 &1249569563
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7264,7 +7689,7 @@ GameObject:
   - component: {fileID: 1503804797}
   - component: {fileID: 1503804796}
   m_Layer: 0
-  m_Name: delay
+  m_Name: delay_green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7310,7 +7735,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 10120949f36918b4fbfd2d5a30b52c42, type: 3}
+  m_Texture: {fileID: 2800000, guid: 87c76a7fcd607584f80d79bc31c0d20b, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -8162,10 +8587,16 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 347908076}
+  - {fileID: 824236161}
   - {fileID: 2082959587}
   - {fileID: 700885799}
   - {fileID: 1503804795}
-  - {fileID: 824236161}
+  - {fileID: 895786964}
+  - {fileID: 936053889}
+  - {fileID: 547512617}
+  - {fileID: 520858805}
+  - {fileID: 1877850115}
+  - {fileID: 696766252}
   m_Father: {fileID: 679134233}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
@@ -9081,6 +9512,79 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1865751036}
   m_CullTransparentMesh: 1
+--- !u!1 &1877850114
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1877850115}
+  - component: {fileID: 1877850117}
+  - component: {fileID: 1877850116}
+  m_Layer: 0
+  m_Name: jobs_red
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1877850115
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877850114}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0.1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1678288476}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1877850116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877850114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: 74b56c3edd5b8614cb5835877e33ab7e, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &1877850117
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877850114}
+  m_CullTransparentMesh: 1
 --- !u!1 &1881425374
 GameObject:
   m_ObjectHideFlags: 0
@@ -9139,7 +9643,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1887115361
 Transform:
   m_ObjectHideFlags: 0
@@ -9189,6 +9693,18 @@ MonoBehaviour:
   workspaceName: Lasercutter
   description: test
   status: 0
+  clock_green: {fileID: 0}
+  clock_orange: {fileID: 0}
+  clock_red: {fileID: 0}
+  jobs_green: {fileID: 0}
+  jobs_orange: {fileID: 0}
+  jobs_red: {fileID: 0}
+  delay_green: {fileID: 0}
+  delay_orange: {fileID: 0}
+  delay_red: {fileID: 0}
+  numOfDelays: 5
+  numOfJobs: 5
+  numOfPredictedDelays: 5
 --- !u!65 &1887115364
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10029,7 +10545,7 @@ GameObject:
   - component: {fileID: 2082959589}
   - component: {fileID: 2082959588}
   m_Layer: 0
-  m_Name: delays
+  m_Name: clock_green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10075,7 +10591,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 8d9a9b06cb3490d43a12dd24f79058b4, type: 3}
+  m_Texture: {fileID: 2800000, guid: 07b748005cc39844f84bc2b525ab43f7, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
