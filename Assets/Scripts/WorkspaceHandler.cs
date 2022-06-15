@@ -6,7 +6,7 @@ public class WorkspaceHandler : MonoBehaviour
 {
     private GameObject statusCanvas;
     private GameObject detailCanvas;
-
+    public GameObject DetailOverlay;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +23,7 @@ public class WorkspaceHandler : MonoBehaviour
             RaycastHit hitInfo;
             var target = ReturnClickedObject(out hitInfo);
             float goalRotation = 0;
+            Debug.Log(target.transform.tag);
             if (target == gameObject)
             {
                 ToggleUICanvas();
@@ -33,10 +34,14 @@ public class WorkspaceHandler : MonoBehaviour
                     goalRotation = 180;
 
                 StartCoroutine(Rotate(target, goalRotation));
-                
-
+            }
+            else if(target.transform.tag == "machine"){
+                DetailOverlay.SetActive(true);
             }
         }
+
+
+        
     }
 
     IEnumerator Rotate(GameObject target, float goalRotation)
