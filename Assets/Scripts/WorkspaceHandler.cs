@@ -22,17 +22,50 @@ public class WorkspaceHandler : MonoBehaviour
         {
             RaycastHit hitInfo;
             var target = ReturnClickedObject(out hitInfo);
-            if (target == gameObject) 
-            { 
-                transform.Rotate(0,0,180);
+            float goalRotation = 0;
+            if (target == gameObject)
+            {
                 ToggleUICanvas();
+
+                if ((int)target.transform.localRotation.eulerAngles.z == 180)
+                    goalRotation = 0;
+                else if ((int)target.transform.localRotation.eulerAngles.z == 0)
+                    goalRotation = 180;
+
+                StartCoroutine(Rotate(target, goalRotation));
                 
+
             }
         }
-   
+    }
 
-    } 
-    
+    IEnumerator Rotate(GameObject target, float goalRotation)
+    {
+        if (goalRotation == 0)
+        {
+            while (target.transform.localRotation.eulerAngles.z >= goalRotation)
+            {
+                target.transform.Rotate(Vector3.forward, -10);
+                yield return new WaitForSeconds(0.01f);
+            }
+        }
+        else
+        {
+            while (target.transform.localRotation.eulerAngles.z <= goalRotation)
+            {
+                target.transform.Rotate(Vector3.forward, 10);
+                yield return new WaitForSeconds(0.01f);
+            }
+        }
+        
+
+        /*Vector3 targetAngles = target.transform.eulerAngles + 180f * Vector3.forward; // what the new angles should be
+
+        transform.eulerAngles = Vector3.Lerp(target.transform.eulerAngles, targetAngles, Time.deltaTime); // lerp to new angles
+        yield return new WaitForSeconds(0.01f);*/
+        yield return null;
+    }
+
     void ToggleUICanvas(){
         statusCanvas.SetActive(!statusCanvas.activeSelf);
         detailCanvas.SetActive(!detailCanvas.activeSelf);
