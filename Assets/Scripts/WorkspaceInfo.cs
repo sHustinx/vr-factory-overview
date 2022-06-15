@@ -21,9 +21,9 @@ public class WorkspaceInfo : MonoBehaviour
     public GameObject delay_orange;
     public GameObject delay_red;
 
-    public int numOfDelays = 5;
-    public int numOfJobs = 5;
-    public int numOfPredictedDelays = 5;
+    public float numOfDelays = 5;
+    public float numOfJobs = 5;
+    public float numOfPredictedDelays = 5;
 
 
     public enum WorkspaceStatus
@@ -75,6 +75,8 @@ public class WorkspaceInfo : MonoBehaviour
         delay_red.SetActive(false);
         delay_green.SetActive(true);
         delay_orange.SetActive(false);
+
+        StartCoroutine(UpdateValues());
 
     }
 
@@ -140,4 +142,18 @@ public class WorkspaceInfo : MonoBehaviour
             delay_orange.SetActive(false);
         }
     }
+
+    IEnumerator UpdateValues()
+    {
+        while (true)
+        {
+            numOfDelays = numOfDelays + Random.Range(-0.5f, 0.5f);
+            numOfJobs = numOfJobs + Random.Range(-0.5f, 0.5f);
+            numOfPredictedDelays = numOfPredictedDelays + Random.Range(-0.5f, 0.5f);
+            yield return new WaitForSeconds(2.0f);
+        }
+        
+    }
+
+
 }
