@@ -23,7 +23,9 @@ public class WorkspaceHandler : MonoBehaviour
             RaycastHit hitInfo;
             var target = ReturnClickedObject(out hitInfo);
             float goalRotation = 0;
-            Debug.Log(target.transform.tag);
+            //Debug.Log(target.transform.tag);
+            if (target == null)
+                return;
             if (target == gameObject)
             {
                 ToggleUICanvas();
