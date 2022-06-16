@@ -35,23 +35,21 @@ public class WorkspaceInfo : MonoBehaviour
 
     public void SetStatus(WorkspaceStatus value)
     {
-        status = value;
+        // status = value;
 
-        //update color
-        switch (value)
-        {
-            case WorkspaceStatus.Active:
-                gameObject.GetComponent<Renderer>().material.color = Color.green;
-                break;
-            case WorkspaceStatus.Inactive:
-                gameObject.GetComponent<Renderer>().material.color = Color.grey;
-                break;
-            case WorkspaceStatus.OutOfOrder:
-                gameObject.GetComponent<Renderer>().material.color = Color.red;
-                break;
-        }
-
-        
+        // //update color
+        // switch (value)
+        // {
+        //     case WorkspaceStatus.Active:
+        //         gameObject.GetComponent<Renderer>().material.color = Color.green;
+        //         break;
+        //     case WorkspaceStatus.Inactive:
+        //         gameObject.GetComponent<Renderer>().material.color = Color.grey;
+        //         break;
+        //     case WorkspaceStatus.OutOfOrder:
+        //         gameObject.GetComponent<Renderer>().material.color = Color.red;
+        //         break;
+        // }
     }
 
     public WorkspaceStatus GetStatus()
