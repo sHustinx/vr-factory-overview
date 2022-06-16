@@ -15,6 +15,9 @@ public class FloorplanManager : MonoBehaviour
     private bool linesRendered = false;
     private LineRenderer lr;
 
+    public GameObject machines;
+
+
     enum ViewState
     {
         Machines,
@@ -25,6 +28,7 @@ public class FloorplanManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        machines = GameObject.Find("Machines");
         processView.onClick.AddListener(SetProcessView);
         machineView.onClick.AddListener(SetMachineView);
         connections = new GameObject("LineRenderer");
@@ -35,6 +39,14 @@ public class FloorplanManager : MonoBehaviour
         viewState = ViewState.Process;
         ShowConnections();
         infoPanel.SetActive(false);
+
+        int children = machines.transform.childCount;
+        for (int i = 0; i < children; ++i)
+        {
+            machines.transform.GetChild(i).transform.Find("productionCanvas").gameObject.SetActive(true);
+            machines.transform.GetChild(i).transform.Find("statusCanvas").gameObject.SetActive(false);
+        }
+            
     }
 
     void SetMachineView()
@@ -43,6 +55,13 @@ public class FloorplanManager : MonoBehaviour
 
         if (connections.activeSelf)
             connections.SetActive(false);
+
+        int children = machines.transform.childCount;
+        for (int i = 0; i < children; ++i)
+        {
+            machines.transform.GetChild(i).transform.Find("productionCanvas").gameObject.SetActive(false);
+            machines.transform.GetChild(i).transform.Find("statusCanvas").gameObject.SetActive(true);
+        }
     }
 
     // Update is called once per frame
