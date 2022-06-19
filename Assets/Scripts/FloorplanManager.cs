@@ -18,7 +18,7 @@ public class FloorplanManager : MonoBehaviour
     public GameObject machines;
 
 
-    enum ViewState
+    public enum ViewState
     {
         Machines,
         Process,
@@ -33,7 +33,9 @@ public class FloorplanManager : MonoBehaviour
         machineView.onClick.AddListener(SetMachineView);
         connections = new GameObject("LineRenderer");
     }
-
+    public ViewState getViewState(){
+        return viewState;
+    }
     void SetProcessView()
     {
         viewState = ViewState.Process;

@@ -7,18 +7,19 @@ public class WorkspaceHandler : MonoBehaviour
     private GameObject statusCanvas;
     private GameObject detailCanvas;
     public GameObject DetailOverlay;
+    private FloorplanManager FloorplanManager;
     // Start is called before the first frame update
     void Start()
     {
         statusCanvas = transform.Find("statusCanvas").gameObject;
         detailCanvas = transform.Find("detailCanvas").gameObject;
-
+        FloorplanManager = GameObject.Find("Scripts").GetComponent<FloorplanManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && FloorplanManager.getViewState() == FloorplanManager.ViewState.Machines)
         {
             RaycastHit hitInfo;
             var target = ReturnClickedObject(out hitInfo);
