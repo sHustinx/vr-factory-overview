@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class WorkspaceInfo : MonoBehaviour
 {
@@ -20,6 +22,8 @@ public class WorkspaceInfo : MonoBehaviour
     public GameObject delay_green;
     public GameObject delay_orange;
     public GameObject delay_red;
+
+    public TextMeshProUGUI workspaceTitle;
 
     public float numOfDelays = 5;
     public float numOfJobs = 5;
@@ -75,6 +79,9 @@ public class WorkspaceInfo : MonoBehaviour
         delay_orange.SetActive(false);
 
         StartCoroutine(UpdateValues());
+
+        
+        workspaceTitle.text = workspaceName;
 
     }
 

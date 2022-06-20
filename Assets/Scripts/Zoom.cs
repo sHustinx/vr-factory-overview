@@ -35,7 +35,7 @@ public class Zoom : MonoBehaviour, IPointerClickHandler
 
     private void ZoomOut(){
         mainCam.transform.position = new Vector3(0,20,0);
-        mainCam.GetComponent<Camera>().orthographicSize = 12;
+        mainCam.GetComponent<Camera>().orthographicSize = 14.5f;
         zoomed = false;                    
         gameObject.GetComponent<RawImage>().enabled = true;
         ToggleChildren(true);
