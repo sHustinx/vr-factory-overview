@@ -24,6 +24,7 @@ public class WorkspaceInfo : MonoBehaviour
     public GameObject delay_red;
 
     public TextMeshProUGUI workspaceTitle;
+    public TextMeshProUGUI detailTitle;
 
     public float numOfDelays = 5;
     public float numOfJobs = 5;
@@ -82,6 +83,7 @@ public class WorkspaceInfo : MonoBehaviour
 
         
         workspaceTitle.text = workspaceName;
+        detailTitle.text = workspaceName;
 
     }
 
