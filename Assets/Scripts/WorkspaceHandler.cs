@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class WorkspaceHandler : MonoBehaviour
 {
     private GameObject statusCanvas;
     private GameObject detailCanvas;
     public GameObject DetailOverlay;
+    public TextMeshProUGUI sidebarTitle;
+
     private FloorplanManager FloorplanManager;
     // Start is called before the first frame update
     void Start()
@@ -14,6 +18,7 @@ public class WorkspaceHandler : MonoBehaviour
         statusCanvas = transform.Find("statusCanvas").gameObject;
         detailCanvas = transform.Find("detailCanvas").gameObject;
         FloorplanManager = GameObject.Find("Scripts").GetComponent<FloorplanManager>();
+        //sidebarTitle.text = "test";
     }
 
     // Update is called once per frame
@@ -24,8 +29,8 @@ public class WorkspaceHandler : MonoBehaviour
             RaycastHit hitInfo;
             var target = ReturnClickedObject(out hitInfo);
             float goalRotation = 0;
-            //Debug.Log(target.transform.tag);
-            if (target == null)
+
+            if (target == null) //prevent crashes
                 return;
             if (target == gameObject)
             {
@@ -36,6 +41,7 @@ public class WorkspaceHandler : MonoBehaviour
                 else if ((int)target.transform.localRotation.eulerAngles.z == 0)
                     goalRotation = 180;
 
+                sidebarTitle.text = target.GetComponent<WorkspaceInfo>().workspaceName;
                 StartCoroutine(Rotate(target, goalRotation));
             }
             else if(target.transform.tag == "machine"){
