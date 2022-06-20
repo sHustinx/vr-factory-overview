@@ -9,7 +9,10 @@ public class WorkspaceHandler : MonoBehaviour
     private GameObject statusCanvas;
     private GameObject detailCanvas;
     public GameObject DetailOverlay;
+
     public TextMeshProUGUI sidebarTitle;
+    public TextMeshProUGUI sidebarSubTitle;
+    public GameObject sidebarContent;
 
     private FloorplanManager FloorplanManager;
     // Start is called before the first frame update
@@ -41,7 +44,10 @@ public class WorkspaceHandler : MonoBehaviour
                 else if ((int)target.transform.localRotation.eulerAngles.z == 0)
                     goalRotation = 180;
 
+                if (sidebarContent.activeSelf == false)
+                    sidebarContent.SetActive(true);
                 sidebarTitle.text = target.GetComponent<WorkspaceInfo>().workspaceName;
+                sidebarSubTitle.text = target.GetComponent<WorkspaceInfo>().description;
                 StartCoroutine(Rotate(target, goalRotation));
             }
             else if(target.transform.tag == "machine"){
