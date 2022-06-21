@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Order : MonoBehaviour
+public class Order
 {
     public string code;
-    private Color color;
+    public Color color;
+
     // Start is called before the first frame update
     void Start()
     {
