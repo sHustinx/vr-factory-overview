@@ -124,12 +124,43 @@ public class OrderManager : MonoBehaviour
     }
 
     public void UpdateOrders(bool forward){
-        foreach(Transform workSpace in workSpaces.transform){
+        
+        List<List<Order>> oldList = new List<List<Order>>();
+        foreach(Transform workSpace in workSpaces.transform){			
+            
             Transform orderScreen = workSpace.Find("productionCanvas");
             Transform orderList = orderScreen.Find("Projects");
 
             WorkspaceOrderHandler handler = orderList.GetComponent<WorkspaceOrderHandler>();
-            handler.UpdateOrders(forward);
+            //handler.UpdateOrders(forward);
+            oldList.Add(handler.orders);
+        }
+        List<List<Order>> newList = new List<List<Order>>();
+        if(forward){
+            newList.Add(oldList[5]);
+            for(int i = 0; i<oldList.Count()-1; i++){
+                newList.Add(oldList[i]);
+                Debug.Log(i);
+            }
+        }
+        else{
+            for(int j = 0; j<oldList.Count()-1; j++){
+                newList.Add(oldList[j+1]);
+            }
+            newList.Add(oldList[0]);
+        }
+        Debug.Log(newList.Count());
+        int k = 0;
+        foreach(Transform workSpace in workSpaces.transform){			
+            
+            Transform orderScreen = workSpace.Find("productionCanvas");
+            Transform orderList = orderScreen.Find("Projects");
+
+            WorkspaceOrderHandler handler = orderList.GetComponent<WorkspaceOrderHandler>();
+            handler.SetOrders(newList[k]);
+            k++;
+
         }
     }
 }
+

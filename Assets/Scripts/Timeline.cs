@@ -15,7 +15,7 @@ public class Timeline : MonoBehaviour
 	public void Start()
 	{
 		currentTime = DateTime.Now;
-		minTime = new DateTime(currentTime.Year, currentTime.Month,currentTime.Day, 20, 00, 0 );
+		minTime = new DateTime(currentTime.Year, currentTime.Month,currentTime.Day, 08, 00, 0 );
 		maxTime = new DateTime(currentTime.Year, currentTime.Month,currentTime.Day, 23, 59, 0 );
 		double maxTicks = maxTime.Ticks - minTime.Ticks;
 		double currentTicks = currentTime.Ticks - minTime.Ticks;
