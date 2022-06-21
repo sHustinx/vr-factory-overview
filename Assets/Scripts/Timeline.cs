@@ -15,7 +15,7 @@ public class Timeline : MonoBehaviour
 	{
 		currentTime = DateTime.Now;
 		minTime = new DateTime(currentTime.Year, currentTime.Month,currentTime.Day, 8, 00, 0 );
-		maxTime = new DateTime(currentTime.Year, currentTime.Month,currentTime.Day, 21, 00, 0 );
+		maxTime = new DateTime(currentTime.Year, currentTime.Month,currentTime.Day, 17, 00, 0 );
 		double maxTicks = maxTime.Ticks - minTime.Ticks;
 		double currentTicks = currentTime.Ticks - minTime.Ticks;
 		//Adds a listener to the main slider and invokes a method when the value changes.
