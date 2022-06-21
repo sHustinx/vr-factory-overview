@@ -25,6 +25,7 @@ public class WorkspaceInfo : MonoBehaviour
 
     public TextMeshProUGUI workspaceTitle;
     public TextMeshProUGUI detailTitle;
+    public TextMeshProUGUI processTitle;
 
     public float numOfDelays = 5;
     public float numOfJobs = 5;
@@ -84,6 +85,7 @@ public class WorkspaceInfo : MonoBehaviour
         
         workspaceTitle.text = workspaceName;
         detailTitle.text = workspaceName;
+        processTitle.text = workspaceName;
 
     }
 

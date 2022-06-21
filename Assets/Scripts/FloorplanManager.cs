@@ -60,7 +60,7 @@ public class FloorplanManager : MonoBehaviour
     {
         //gives index of selection
         //todo update displayed data
-        Debug.Log(change.value);
+        Debug.Log("DROPDOWN VALUE " + change.value);
     }
 
     void updateDropdown(TMP_Dropdown dropdown, List<string> optionlist){

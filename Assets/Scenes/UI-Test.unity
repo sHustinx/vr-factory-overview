@@ -208,13 +208,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 1
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 32
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -4043,7 +4043,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 250878339}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5cb993d1be957441be547470e6f5655, type: 3}
+  m_Script: {fileID: 0}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &252326377
@@ -4852,6 +4852,7 @@ MonoBehaviour:
   delay_red: {fileID: 922930426}
   workspaceTitle: {fileID: 410567884}
   detailTitle: {fileID: 1422322325}
+  processTitle: {fileID: 2091501028}
   numOfDelays: 5
   numOfJobs: 5
   numOfPredictedDelays: 5
@@ -8659,6 +8660,7 @@ MonoBehaviour:
   delay_red: {fileID: 1336397100}
   workspaceTitle: {fileID: 1143306723}
   detailTitle: {fileID: 404454735}
+  processTitle: {fileID: 1981705164}
   numOfDelays: 5
   numOfJobs: 5
   numOfPredictedDelays: 5
@@ -8935,6 +8937,7 @@ MonoBehaviour:
   delay_red: {fileID: 658801148}
   workspaceTitle: {fileID: 97286329}
   detailTitle: {fileID: 56689350}
+  processTitle: {fileID: 1616377532}
   numOfDelays: 5
   numOfJobs: 5
   numOfPredictedDelays: 5
@@ -9086,13 +9089,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 1
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 32
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -15679,6 +15682,7 @@ MonoBehaviour:
   delay_red: {fileID: 1032688927}
   workspaceTitle: {fileID: 842468100}
   detailTitle: {fileID: 89633167}
+  processTitle: {fileID: 31966}
   numOfDelays: 5
   numOfJobs: 5
   numOfPredictedDelays: 5
@@ -17301,13 +17305,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 1
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 32
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -20947,13 +20951,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 1
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 32
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -21262,6 +21266,7 @@ MonoBehaviour:
   delay_red: {fileID: 928859597}
   workspaceTitle: {fileID: 1738283830}
   detailTitle: {fileID: 1356921573}
+  processTitle: {fileID: 1330904119}
   numOfDelays: 5
   numOfJobs: 5
   numOfPredictedDelays: 5
@@ -24211,6 +24216,7 @@ MonoBehaviour:
   delay_red: {fileID: 2129003348}
   workspaceTitle: {fileID: 1197349381}
   detailTitle: {fileID: 1752967796}
+  processTitle: {fileID: 720215574}
   numOfDelays: 5
   numOfJobs: 5
   numOfPredictedDelays: 5
@@ -26483,13 +26489,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 1
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 32
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -28059,13 +28065,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 1
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 32
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
