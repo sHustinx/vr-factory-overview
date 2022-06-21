@@ -30,6 +30,8 @@ public class Timeline : MonoBehaviour
 	// Invoked when the value of the slider changes.
 	public void ValueChangeCheck()
 	{
+		Debug.Log ("slider val "+  mainSlider.value);
+
 		if(mainSlider.value > currentInt+1){
 			currentInt = (int)Math.Floor(mainSlider.value);
 			OrderManager.UpdateOrders(true);

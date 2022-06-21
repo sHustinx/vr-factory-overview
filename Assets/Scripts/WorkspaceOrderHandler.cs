@@ -30,8 +30,8 @@ public class WorkspaceOrderHandler : MonoBehaviour
         if(forward){
             nextWorkspace.GetComponent<WorkspaceOrderHandler>().receiveOrder(order);
         }
-        else{
-            nextWorkspace.GetComponent<WorkspaceOrderHandler>().receiveOrder(order);
+        else {
+            prevWorkspace.GetComponent<WorkspaceOrderHandler>().receiveOrder(order);
         }
     }
 

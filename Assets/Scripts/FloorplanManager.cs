@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
 
 public class FloorplanManager : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class FloorplanManager : MonoBehaviour
     public TMP_Dropdown clientSelection;
     public TMP_Dropdown productSelection;
 
+    List<Company> companies;
 
     public enum ViewState
     {
@@ -40,23 +42,34 @@ public class FloorplanManager : MonoBehaviour
         connections = new GameObject("LineRenderer");
 
         //todo get data from right classes/update dynamically
-        List<string> options = new List<string> { "Company 1", "Company 2", "Company 3"};
+        List<string> options = new List<string> { "None"};
         updateDropdown(clientSelection, options);
 
-        List<string> options2 = new List<string> { "Product 1", "Product 2", "Product 3"};
+        List<string> options2 = new List<string> { "None"};
         updateDropdown(productSelection, options2);
 
         clientSelection.onValueChanged.AddListener(delegate {
-            DropdownValueChanged(clientSelection);
+            ClientDropdownValueChanged(clientSelection);
         });
 
         productSelection.onValueChanged.AddListener(delegate {
-            DropdownValueChanged(productSelection);
+            ProductDropdownValueChanged(productSelection);
         });
 
     }
 
-    void DropdownValueChanged(TMP_Dropdown change)
+    void ClientDropdownValueChanged(TMP_Dropdown change)
+    {
+        //gives index of selection
+        //todo update displayed data
+        Debug.Log("DROPDOWN VALUE " + change.value);
+
+        List<string> options = companies[change.value].orders.Select(order => order.code).ToList();
+        updateDropdown(productSelection, options);
+        
+    }
+
+    void ProductDropdownValueChanged(TMP_Dropdown change)
     {
         //gives index of selection
         //todo update displayed data
@@ -74,6 +87,11 @@ public class FloorplanManager : MonoBehaviour
 
     void SetProcessView()
     {
+        companies = GameObject.Find("Scripts").GetComponent<OrderManager>().companies;
+        
+        List<string> options = companies.Select(company => company.name).ToList();
+        updateDropdown(clientSelection, options);
+
         detailSidebar.SetActive(false);
         processSidebar.SetActive(true);
 

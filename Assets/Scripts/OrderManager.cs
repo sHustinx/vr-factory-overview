@@ -5,7 +5,7 @@ using System.Linq;
 
 public class OrderManager : MonoBehaviour
 {
-    List<Company> companies;
+    public List<Company> companies;
     public GameObject workSpaces;
 
     void Start(){
