@@ -39,8 +39,28 @@ public class FloorplanManager : MonoBehaviour
         machineView.onClick.AddListener(SetMachineView);
         connections = new GameObject("LineRenderer");
 
-        List<string> options = new List<string> { "Option 1", "Option 2"};
+        //todo get data from right classes/update dynamically
+        List<string> options = new List<string> { "Company 1", "Company 2", "Company 3"};
         updateDropdown(clientSelection, options);
+
+        List<string> options2 = new List<string> { "Product 1", "Product 2", "Product 3"};
+        updateDropdown(productSelection, options2);
+
+        clientSelection.onValueChanged.AddListener(delegate {
+            DropdownValueChanged(clientSelection);
+        });
+
+        productSelection.onValueChanged.AddListener(delegate {
+            DropdownValueChanged(productSelection);
+        });
+
+    }
+
+    void DropdownValueChanged(TMP_Dropdown change)
+    {
+        //gives index of selection
+        //todo update displayed data
+        Debug.Log(change.value);
     }
 
     void updateDropdown(TMP_Dropdown dropdown, List<string> optionlist){
