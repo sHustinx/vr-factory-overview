@@ -1,28 +1,38 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq; 
-
 public class WorkspaceOrderHandler : MonoBehaviour
 {
-    public List<Order> orders;
-    public GameObject nextWorkspace;
-    // Start is called before the first frame update
-    void Start()
-    {
-        orders = new List<Order>();
+    public List<Order> orders {get; set;}
+    public GameObject prevWorkspace = null;
+    public GameObject nextWorkspace = null;
+    
+    void Awake(){
 
-        int children = transform.childCount;
-         for (int i = 0; i < children; ++i){
-             transform.GetChild(i).GetComponent<Renderer>().material.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
-         }
+      orders = new List<Order>();
     }
 
 
-    public void passOrder(Order order){
+    public void SetOrders(List<Order> activeOrders){
+        orders = new List<Order>();
+        if(activeOrders.Count() > 0){
+            orders.AddRange(activeOrders);
+        }
+        refreshOrders();
+    }
+
+    public void passOrder(Order order, bool forward){
+        Debug.Log("pass!");
         orders = orders.Where(i => i != order).ToList();
         refreshOrders();
-        nextWorkspace.GetComponent<WorkspaceOrderHandler>().receiveOrder(order);
+        if(forward){
+            nextWorkspace.GetComponent<WorkspaceOrderHandler>().receiveOrder(order);
+        }
+        else{
+            nextWorkspace.GetComponent<WorkspaceOrderHandler>().receiveOrder(order);
+        }
     }
 
     public void receiveOrder(Order order){
@@ -41,6 +51,24 @@ public class WorkspaceOrderHandler : MonoBehaviour
 
             transform.GetChild(i).GetComponent<Renderer>().material.color = o.color;
             i++;
+        }
+    }
+
+    public void UpdateOrders(bool forward){
+        if(forward){
+            if(nextWorkspace != null){
+                Debug.Log(orders.Count());
+                foreach(Order o in orders){
+                    passOrder(o, forward);
+                }
+            }
+        }
+        else{
+            if(prevWorkspace != null){
+                foreach(Order o in orders){
+                    passOrder(o, forward);
+                }
+            }
         }
     }
 }
