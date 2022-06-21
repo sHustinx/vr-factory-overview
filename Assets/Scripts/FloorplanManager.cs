@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class FloorplanManager : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class FloorplanManager : MonoBehaviour
 
     public GameObject machines;
 
+    public TMP_Dropdown clientSelection;
+    public TMP_Dropdown productSelection;
+
 
     public enum ViewState
     {
@@ -34,6 +38,14 @@ public class FloorplanManager : MonoBehaviour
         processView.onClick.AddListener(SetProcessView);
         machineView.onClick.AddListener(SetMachineView);
         connections = new GameObject("LineRenderer");
+
+        List<string> options = new List<string> { "Option 1", "Option 2"};
+        updateDropdown(clientSelection, options);
+    }
+
+    void updateDropdown(TMP_Dropdown dropdown, List<string> optionlist){
+        dropdown.ClearOptions();
+        dropdown.AddOptions(optionlist);   
     }
 
     public ViewState getViewState(){
