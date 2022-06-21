@@ -15,8 +15,8 @@ public class Timeline : MonoBehaviour
 	public void Start()
 	{
 		currentTime = DateTime.Now;
-		minTime = new DateTime(currentTime.Year, currentTime.Month,currentTime.Day, 8, 00, 0 );
-		maxTime = new DateTime(currentTime.Year, currentTime.Month,currentTime.Day, 21, 00, 0 );
+		minTime = new DateTime(currentTime.Year, currentTime.Month,currentTime.Day, 20, 00, 0 );
+		maxTime = new DateTime(currentTime.Year, currentTime.Month,currentTime.Day, 23, 59, 0 );
 		double maxTicks = maxTime.Ticks - minTime.Ticks;
 		double currentTicks = currentTime.Ticks - minTime.Ticks;
 		//Adds a listener to the main slider and invokes a method when the value changes.
@@ -30,8 +30,6 @@ public class Timeline : MonoBehaviour
 	// Invoked when the value of the slider changes.
 	public void ValueChangeCheck()
 	{
-		Debug.Log ("slider val "+  mainSlider.value);
-
 		if(mainSlider.value > currentInt+1){
 			currentInt = (int)Math.Floor(mainSlider.value);
 			OrderManager.UpdateOrders(true);

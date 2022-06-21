@@ -9,12 +9,6 @@ public class WorkspaceOrderHandler : MonoBehaviour
     public GameObject prevWorkspace = null;
     public GameObject nextWorkspace = null;
     
-    void Awake(){
-
-      orders = new List<Order>();
-    }
-
-
     public void SetOrders(List<Order> activeOrders){
         orders = new List<Order>();
         if(activeOrders.Count() > 0){
@@ -24,7 +18,6 @@ public class WorkspaceOrderHandler : MonoBehaviour
     }
 
     public void passOrder(Order order, bool forward){
-        Debug.Log("pass!");
         orders = orders.Where(i => i != order).ToList();
         refreshOrders();
         if(forward){
@@ -57,7 +50,6 @@ public class WorkspaceOrderHandler : MonoBehaviour
     public void UpdateOrders(bool forward){
         if(forward){
             if(nextWorkspace != null){
-                Debug.Log(orders.Count());
                 foreach(Order o in orders){
                     passOrder(o, forward);
                 }
