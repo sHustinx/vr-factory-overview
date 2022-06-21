@@ -8,6 +8,9 @@ public class OrderManager : MonoBehaviour
     public List<Company> companies;
     public GameObject workSpaces;
 
+    public bool filtered = false;
+    public List<Company> filteredCompanies;
+
     void Start(){
         Color colorC1 = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
         Company c1 = new Company{
@@ -84,7 +87,7 @@ public class OrderManager : MonoBehaviour
         SetOrders();
     }
 
-    void SetOrders(){
+    public void SetOrders(){
         int i = 0;
         foreach(Transform workSpace in workSpaces.transform){
             Transform orderScreen = workSpace.Find("productionCanvas");
@@ -94,10 +97,21 @@ public class OrderManager : MonoBehaviour
                 order.gameObject.SetActive(false);
                     
             }
-            List<Company> cList = companies.Where(c => 
+
+            List<Company> cList;
+            if (filtered){
+                cList = filteredCompanies.Where(c => 
                 c.orders.Any(o =>
                     o.initialMachine == i)
-            ).ToList();
+                ).ToList();
+            }
+            else{
+                cList = companies.Where(c => 
+                c.orders.Any(o =>
+                    o.initialMachine == i)
+                ).ToList();
+            }
+
             List<Order> activeOrders = new List<Order>();
             foreach(Company c in cList){
                 activeOrders.AddRange(c.orders.Where(o => o.initialMachine == i).ToList());

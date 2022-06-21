@@ -24,6 +24,8 @@ public class FloorplanManager : MonoBehaviour
     public TMP_Dropdown clientSelection;
     public TMP_Dropdown productSelection;
 
+    List<Company> filteredCompanies;
+
     List<Company> companies;
 
     public enum ViewState
@@ -41,7 +43,6 @@ public class FloorplanManager : MonoBehaviour
         machineView.onClick.AddListener(SetMachineView);
         connections = new GameObject("LineRenderer");
 
-        //todo get data from right classes/update dynamically
         List<string> options = new List<string> { "None"};
         updateDropdown(clientSelection, options);
 
@@ -60,23 +61,51 @@ public class FloorplanManager : MonoBehaviour
 
     void ClientDropdownValueChanged(TMP_Dropdown change)
     {
-        //gives index of selection
-        //todo update displayed data
-        Debug.Log("DROPDOWN VALUE " + change.value);
+        //skip placeholder
+        if (change.value == 0){
+            GameObject.Find("Scripts").GetComponent<OrderManager>().filtered = false;
+            GameObject.Find("Scripts").GetComponent<OrderManager>().SetOrders();
+            return;
+        }
 
-        List<string> options = companies[change.value].orders.Select(order => order.code).ToList();
+        //update filter
+        filteredCompanies = new List<Company> {companies[change.value-1]};
+        GameObject.Find("Scripts").GetComponent<OrderManager>().filtered = true;
+        GameObject.Find("Scripts").GetComponent<OrderManager>().filteredCompanies = filteredCompanies;
+        GameObject.Find("Scripts").GetComponent<OrderManager>().SetOrders();
+
+        List<string> options = companies[change.value-1].orders.Select(order => order.code).ToList();
         updateDropdown(productSelection, options);
-        
     }
 
     void ProductDropdownValueChanged(TMP_Dropdown change)
     {
-        //gives index of selection
-        //todo update displayed data
-        Debug.Log("DROPDOWN VALUE " + change.value);
+        //skip placeholder
+        if (change.value == 0){
+            GameObject.Find("Scripts").GetComponent<OrderManager>().filteredCompanies = filteredCompanies;
+            GameObject.Find("Scripts").GetComponent<OrderManager>().SetOrders();
+            return;
+        }
+
+        //update filter
+        List<Company> filteredOrder = new List<Company> {
+            new Company{
+                name = filteredCompanies[0].name,
+                color = filteredCompanies[0].color,
+                orders = new List<Order>{
+                    filteredCompanies[0].orders[change.value-1]
+                }
+            }
+        };
+
+        GameObject.Find("Scripts").GetComponent<OrderManager>().filtered = true;
+        GameObject.Find("Scripts").GetComponent<OrderManager>().filteredCompanies = filteredOrder;
+        GameObject.Find("Scripts").GetComponent<OrderManager>().SetOrders();
+
     }
 
     void updateDropdown(TMP_Dropdown dropdown, List<string> optionlist){
+        optionlist.Insert(0, "All");
         dropdown.ClearOptions();
         dropdown.AddOptions(optionlist);   
     }
