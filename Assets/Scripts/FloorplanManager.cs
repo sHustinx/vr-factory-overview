@@ -9,8 +9,10 @@ public class FloorplanManager : MonoBehaviour
     public GameObject infoPanel;
     public Button processView;
     public Button machineView;
-    private ViewState viewState;
+    public GameObject detailSidebar;
+    public GameObject processSidebar;
 
+    private ViewState viewState;
     private GameObject connections;
     private bool linesRendered = false;
     private LineRenderer lr;
@@ -33,14 +35,21 @@ public class FloorplanManager : MonoBehaviour
         machineView.onClick.AddListener(SetMachineView);
         connections = new GameObject("LineRenderer");
     }
+
     public ViewState getViewState(){
         return viewState;
     }
+
     void SetProcessView()
     {
+        detailSidebar.SetActive(false);
+        processSidebar.SetActive(true);
+
+        resetMachines(machines);
         viewState = ViewState.Process;
         ShowConnections();
         infoPanel.SetActive(false);
+
 
         int children = machines.transform.childCount;
         for (int i = 0; i < children; ++i)
@@ -53,6 +62,9 @@ public class FloorplanManager : MonoBehaviour
 
     void SetMachineView()
     {
+        detailSidebar.SetActive(true);
+        processSidebar.SetActive(false);
+
         viewState = ViewState.Machines;
 
         if (connections.activeSelf)
@@ -100,6 +112,15 @@ public class FloorplanManager : MonoBehaviour
 
 
 
+        }
+    }
+
+    void resetMachines(GameObject machineParent)
+    {
+        int children = machines.transform.childCount;
+        for (int i = 0; i < children; ++i)
+        {
+            machines.transform.GetChild(i).transform.rotation = Quaternion.Euler(0,0,0);
         }
     }
 
